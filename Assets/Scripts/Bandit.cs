@@ -26,9 +26,5 @@ public class Bandit : MonoBehaviour
 
             _isDead = !_isDead;
         }
-        else if (Input.GetKeyDown("q"))
-        {
-            _animator.SetTrigger("Hurt");
-        }
     }
 }

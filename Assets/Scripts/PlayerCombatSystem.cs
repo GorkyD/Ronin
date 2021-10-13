@@ -9,6 +9,10 @@ public class PlayerCombatSystem : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange = 0.5f;
     [SerializeField] private LayerMask enemyLayers;
+    [SerializeField] private int attackDamage = 25;
+    [SerializeField] private float attackRate = 2f;
+
+    private float nextAttackTime;
     private Animator _animator;
     
     private void Start()
@@ -17,9 +21,13 @@ public class PlayerCombatSystem : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Time.time >= nextAttackTime)
         {
-            Attack();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
     }
     private void Attack()
@@ -30,16 +38,14 @@ public class PlayerCombatSystem : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("ZALUPA!!!");
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
     }
-
     private void OnDrawGizmos()
     {
         if (attackPoint == null)
         {
             return;
-            
         }
         Gizmos.DrawWireSphere(attackPoint.position,attackRange);
     }
