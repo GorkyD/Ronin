@@ -2,12 +2,12 @@
 public class Bandit : MonoBehaviour 
 
 {
-    private Animator _animator;
-    private bool     _isDead = false;
+    private Animator animator;
+    private bool     isDead = false;
     
     private void Start () 
     {
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
 	private void Update () 
@@ -15,16 +15,16 @@ public class Bandit : MonoBehaviour
  
         if (Input.GetKeyDown("e")) 
         {
-            if (!_isDead)
+            if (!isDead)
             {
-                _animator.SetTrigger("Death");
+                animator.SetTrigger("Death");
             }
             else
             {
-                _animator.SetTrigger("Recover");
+                animator.SetTrigger("Recover");
             }
 
-            _isDead = !_isDead;
+            isDead = !isDead;
         }
     }
 }

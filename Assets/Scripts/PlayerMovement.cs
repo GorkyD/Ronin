@@ -2,33 +2,33 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float _speed = 4.0f;
-    [SerializeField] float _jumpForce = 7.5f;
+    [SerializeField] float speed = 4.0f;
+    [SerializeField] float jumpForce = 7.5f;
 
-    private Animator _animator;
-    private Rigidbody2D _body2d;
-    private Sensor_Player _groundSensor;
-    private bool _grounded = false;
-    private bool _combatIdle = false;
+    private Animator animator;
+    private Rigidbody2D body2d;
+    private Sensor_Player groundSensor;
+    private bool grounded = false;
+    private bool combatIdle = false;
     private void Start()
     {
-        _animator = GetComponent<Animator>();
-        _body2d = GetComponent<Rigidbody2D>();
-        _groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Player>();
+        animator = GetComponent<Animator>();
+        body2d = GetComponent<Rigidbody2D>();
+        groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Player>();
     }
 
     private void Update()
     {
-        if (!_grounded && _groundSensor.State()) 
+        if (!grounded && groundSensor.State()) 
         {
-            _grounded = true;
-            _animator.SetBool("Grounded", _grounded);
+            grounded = true;
+            animator.SetBool("Grounded", grounded);
         }
         
-        if(_grounded && !_groundSensor.State()) 
+        if(grounded && !groundSensor.State()) 
         {
-            _grounded = false;
-            _animator.SetBool("Grounded", _grounded);
+            grounded = false;
+            animator.SetBool("Grounded", grounded);
         }
         
         float inputX = Input.GetAxis("Horizontal");
@@ -42,37 +42,37 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
         
-        _body2d.velocity = new Vector2(inputX * _speed, _body2d.velocity.y);
+        body2d.velocity = new Vector2(inputX * speed, body2d.velocity.y);
         
-        _animator.SetFloat("AirSpeed", _body2d.velocity.y);
+        animator.SetFloat("AirSpeed", body2d.velocity.y);
         
-        if (Input.GetKeyDown("space") && _grounded) 
+        if (Input.GetKeyDown("space") && grounded) 
         {
-            _animator.SetTrigger("Jump");
-            _grounded = false;
-            _animator.SetBool("Grounded", _grounded);
-            _body2d.velocity = new Vector2(_body2d.velocity.x, _jumpForce);
-            _groundSensor.Disable(0.2f);
+            animator.SetTrigger("Jump");
+            grounded = false;
+            animator.SetBool("Grounded", grounded);
+            body2d.velocity = new Vector2(body2d.velocity.x, jumpForce);
+            groundSensor.Disable(0.2f);
         }
         
         else if (Mathf.Abs(inputX) > Mathf.Epsilon)
         {
-            _animator.SetInteger("AnimState", 2);
+            animator.SetInteger("AnimState", 2);
         }
         
-        else if (_combatIdle)
+        else if (combatIdle)
         {
-            _animator.SetInteger("AnimState", 1);
+            animator.SetInteger("AnimState", 1);
         }
         else
         {
-            _animator.SetInteger("AnimState", 0);
+            animator.SetInteger("AnimState", 0);
         }
         
         //BattleMode
         if (Input.GetKeyDown("f"))
         {
-            _combatIdle = !_combatIdle;
+            combatIdle = !combatIdle;
         }
     }
 }

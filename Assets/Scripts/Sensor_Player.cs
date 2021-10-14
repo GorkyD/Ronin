@@ -1,34 +1,34 @@
 ﻿using UnityEngine;
 public class Sensor_Player : MonoBehaviour 
 {
-    private int _ColCount = 0;
-    private float _DisableTimer;
+    private int colCount = 0;
+    private float disableTimer;
     private void OnEnable()
     {
-        _ColCount = 0;
+        colCount = 0;
     }
     public bool State()
     {
-        if (_DisableTimer > 0)
+        if (disableTimer > 0)
         {
             return false;
         }
-        return _ColCount > 0;
+        return colCount > 0;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        _ColCount++;
+        colCount++;
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        _ColCount--;
+        colCount--;
     }
     private void Update()
     {
-        _DisableTimer -= Time.deltaTime;
+        disableTimer -= Time.deltaTime;
     }
     public void Disable(float duration)
     {
-        _DisableTimer = duration;
+        disableTimer = duration;
     }
 }
