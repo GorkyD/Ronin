@@ -2,18 +2,33 @@ using UnityEngine;
 
 public class ParallaxBackground : MonoBehaviour
 {
-    private Transform cameraTransform;
-    private Vector3 lastCameraPosition;
-    [SerializeField] private Vector2 parallaxEffectMultiplier;
+    [SerializeField] private Transform followingTarget;
+    [SerializeField, Range(0f,1f)] private float parallaxStrenght = 0.1f;
+    [SerializeField] private bool disableVerticalParallax;
+    private Vector3 targetPreviousPosition;
+    
+    
     private void Start()
     {
-        cameraTransform = Camera.main.transform;
-        lastCameraPosition = cameraTransform.position;
+        if (!followingTarget)
+        {
+            followingTarget = Camera.main.transform;
+        }
+
+        targetPreviousPosition = followingTarget.position;
     }
+    
     private void FixedUpdate()
     {
-        Vector3 deltaMovement = cameraTransform.position - lastCameraPosition;
-        transform.position += new Vector3(deltaMovement.x * parallaxEffectMultiplier.x,deltaMovement.y * parallaxEffectMultiplier.y);
-        lastCameraPosition = cameraTransform.position;
+        var delta = followingTarget.position - targetPreviousPosition;
+
+        if (disableVerticalParallax)
+        {
+            delta.y = 0;
+        }
+
+        targetPreviousPosition = followingTarget.position;
+
+        transform.position += delta * parallaxStrenght;
     }
 }

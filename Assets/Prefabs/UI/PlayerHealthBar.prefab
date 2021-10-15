@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6931708476299769826
+--- !u!1 &2023754072587546241
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6931708476299769829}
-  - component: {fileID: 6931708476299769831}
-  - component: {fileID: 6931708476299769828}
+  - component: {fileID: 7789939936114307074}
+  - component: {fileID: 7751657749163274482}
+  - component: {fileID: 2883189584406378564}
   m_Layer: 5
-  m_Name: Hearth
+  m_Name: RoninHelmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6931708476299769829
+--- !u!224 &7789939936114307074
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6931708476299769826}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 2023754072587546241}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6931708477604229878}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.62820435, y: -4.8709}
-  m_SizeDelta: {x: 20.3498, y: 18.0416}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -89.8, y: -3.6}
+  m_SizeDelta: {x: 113.2766, y: 105.1784}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6931708476299769831
+--- !u!222 &7751657749163274482
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6931708476299769826}
+  m_GameObject: {fileID: 2023754072587546241}
   m_CullTransparentMesh: 1
---- !u!114 &6931708476299769828
+--- !u!114 &2883189584406378564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6931708476299769826}
+  m_GameObject: {fileID: 2023754072587546241}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 63dc77f7129694b4cade4ed43f09a641, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c776f75bc168c3d4d94b575aa59847ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.290129, g: 0.93333334, b: 0.062745094, a: 1}
+  m_Color: {r: 0.53, g: 0.12848485, b: 0.12848485, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -356,14 +356,14 @@ RectTransform:
   m_Children:
   - {fileID: 6931708477041413494}
   - {fileID: 6931708477290663632}
-  - {fileID: 6931708476299769829}
+  - {fileID: 7789939936114307074}
   m_Father: {fileID: 6931708476441545230}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 68.100006, y: -34.9}
-  m_SizeDelta: {x: 62.1949, y: 10.294601}
+  m_AnchoredPosition: {x: 170.13837, y: -41.054977}
+  m_SizeDelta: {x: 177.2716, y: 14.4044}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6931708477604229833
 MonoBehaviour:
@@ -431,15 +431,15 @@ MonoBehaviour:
   slider: {fileID: 6931708477604229833}
   gradient:
     serializedVersion: 2
-    key0: {r: 0.93725497, g: 0.058823533, b: 0.11764707, a: 1}
-    key1: {r: 0.98341197, g: 1, b: 0.0047169924, a: 1}
-    key2: {r: 0.2509804, g: 0.80392164, b: 0.054901965, a: 0}
+    key0: {r: 0, g: 0, b: 0, a: 1}
+    key1: {r: 0.38823533, g: 0.09411766, b: 0.09411766, a: 1}
+    key2: {r: 0.53, g: 0.12848485, b: 0.12848485, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 20046
+    ctime0: 771
     ctime1: 42212
     ctime2: 63029
     ctime3: 0
@@ -455,7 +455,7 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 1
+    m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 6931708477041413449}
