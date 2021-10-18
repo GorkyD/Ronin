@@ -34,14 +34,14 @@ public class PlayerCombatSystem : MonoBehaviour
     }
     private void Update()
     {
-
+        attackDamage = 25;
         if (Time.time >= nextAttackTime && currentStamina > 25)
         {
             if (Input.GetKeyDown(KeyCode.F) && !attacking)
             {
                 if (combo == 1)
                 {
-                    attackDamage = attackDamage * 2;
+                    attackDamage = 50;
                 }
                 Attack();
                 currentStamina -= attackStamina;
@@ -51,6 +51,7 @@ public class PlayerCombatSystem : MonoBehaviour
                 nextAttackTime = Time.time + 1f / attackRate;
                 audioSource.clip = sounds[combo];
                 audioSource.Play();
+                Debug.Log(attackDamage);
             }
         }
         
