@@ -10,33 +10,41 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject deathEffect;
     [SerializeField] private GameObject enemyHealthBar;
     [SerializeField] private HealthBar healthBar;
-    private Animator _animator;
     
+    private Animator animator;
     private int currentHealth;
+    
     private void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(int damage)
     {
+        StartCoroutine(TakeDamageAnimation(damage));
+        
+    }
+    IEnumerator TakeDamageAnimation(int damage)
+    {
+        yield return new WaitForSeconds(0.8f);
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        _animator.SetTrigger("Hurt");
+        animator.SetTrigger("Hurt");
         
         if (currentHealth <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
-    private void Die()
+
+    IEnumerator Die()
     {
-        _animator.SetTrigger("Death");
+        animator.SetTrigger("Death");
         GetComponent<Collider2D>().enabled = false;
         Destroy(enemyHealthBar);
-
+        yield return null;
         StartCoroutine(Death());
     }
     IEnumerator Death()

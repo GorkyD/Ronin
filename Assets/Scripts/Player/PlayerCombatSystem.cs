@@ -11,29 +11,54 @@ public class PlayerCombatSystem : MonoBehaviour
     [SerializeField] private LayerMask enemyLayers;
     [SerializeField] private int attackDamage = 25;
     [SerializeField] private float attackRate = 2f;
-
+    [SerializeField] private float maxStamina = 100;
+    [SerializeField] private StaminaBar staminaBar;
+    [SerializeField] private int combo;
+    [SerializeField] private bool attacking;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] sounds;
+    
+    
+    private const float staminaIncreasePerFrame = 5.0f;
+    private float currentStamina;
+    private float attackStamina = 20;
     private float nextAttackTime;
-    private Animator _animator;
+    private Animator animator;
     
     private void Start()
     {
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        currentStamina = maxStamina;
+        staminaBar.SetMaxStamina(maxStamina);
     }
     private void Update()
     {
-        if (Time.time >= nextAttackTime)
+
+        if (Time.time >= nextAttackTime && currentStamina > 25)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.F) && !attacking)
             {
+                if (combo == 1)
+                {
+                    attackDamage = attackDamage * 2;
+                }
                 Attack();
+                currentStamina -= attackStamina;
+                staminaBar.SetStamina(currentStamina);
+                attacking = true;
+                animator.SetTrigger(""+combo);
                 nextAttackTime = Time.time + 1f / attackRate;
+                audioSource.clip = sounds[combo];
+                audioSource.Play();
             }
         }
+        
+        currentStamina = Mathf.Clamp(currentStamina + (staminaIncreasePerFrame * Time.deltaTime), 0f, maxStamina);
+        staminaBar.SetStamina(currentStamina);
     }
     private void Attack()
     {
-        _animator.SetTrigger("Attack");
-        
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
@@ -48,5 +73,19 @@ public class PlayerCombatSystem : MonoBehaviour
             return;
         }
         Gizmos.DrawWireSphere(attackPoint.position,attackRange);
+    }
+    public void StartCombo()
+    {
+        attacking = false;
+        if (combo < 2)
+        {
+            combo++; 
+        }
+    }
+
+    public void FinishAnimation()
+    {
+        attacking = false;
+        combo = 0;
     }
 }

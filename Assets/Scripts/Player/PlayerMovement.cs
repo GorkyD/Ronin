@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         
         animator.SetFloat("AirSpeed", body2d.velocity.y);
         
-        if (Input.GetKeyDown("space") && grounded) 
+        if (Input.GetKeyDown(KeyCode.W) && grounded) 
         {
             animator.SetTrigger("Jump");
             grounded = false;
@@ -67,12 +67,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetInteger("AnimState", 0);
-        }
-        
-        //BattleMode
-        if (Input.GetKeyDown("f"))
-        {
-            combatIdle = !combatIdle;
         }
     }
 }
