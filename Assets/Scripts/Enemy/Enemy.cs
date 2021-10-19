@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private GameObject enemy;
-    [SerializeField] private GameObject deathEffect;
     [SerializeField] private GameObject enemyHealthBar;
     [SerializeField] private HealthBar healthBar;
     
@@ -49,10 +48,7 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator Death()
     {
-        yield return new WaitForSeconds(5f);
-        deathEffect.transform.position =
-            new Vector3(transform.position.x, transform.position.y+ 0.3f, transform.position.z + 2);
-        yield return new WaitForSeconds(0.35f); 
+        yield return new WaitForSeconds(10f);
         Destroy(enemy);
     }
 }
