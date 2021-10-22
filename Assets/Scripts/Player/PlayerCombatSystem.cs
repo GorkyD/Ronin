@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Timeline;
-
 public class PlayerCombatSystem : MonoBehaviour
 {
+    #region SerializeField Variables
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange = 0.5f;
     [SerializeField] private LayerMask enemyLayers;
@@ -17,14 +13,15 @@ public class PlayerCombatSystem : MonoBehaviour
     [SerializeField] private bool attacking;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] sounds;
+    #endregion
     
-    
+    #region Private Variables
     private const float staminaIncreasePerFrame = 5.0f;
     private float currentStamina;
     private float attackStamina = 20;
     private float nextAttackTime;
     private Animator animator;
-    
+    #endregion
     private void Start()
     {
         animator = GetComponent<Animator>();
