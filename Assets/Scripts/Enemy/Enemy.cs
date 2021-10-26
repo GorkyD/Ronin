@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         Destroy(enemyHealthBar);
         animator.SetTrigger("Death");
+        StopAllCoroutines();
         yield return new WaitForSeconds(10f);
         Destroy(enemy);
     }

@@ -23,9 +23,11 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyCombatSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rewind/Rewind v1.0/Timer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/HotZoneCheck.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/TriggerAreaCheck.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rewind/ReTime.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rewind/Rewind v1.0/RewindBehavior.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1zVJgt3GyzvfDMCq0uJETfqHJx2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -85,7 +87,7 @@
       <updated>1634227466435</updated>
       <workItem from="1634227671029" duration="52392000" />
       <workItem from="1634915849228" duration="3000" />
-      <workItem from="1635242681988" duration="5769000" />
+      <workItem from="1635242681988" duration="8077000" />
     </task>
     <servers />
   </component>
