@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Sensor_Player groundSensor;
     private bool grounded = false;
     private bool combatIdle = false;
+    
     private void Start()
     {
         animator = GetComponent<Animator>();

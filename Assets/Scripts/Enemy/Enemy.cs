@@ -40,15 +40,12 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Die()
     {
-        animator.SetTrigger("Death");
+        enemy.GetComponent<EnemyCombatSystem>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
         Destroy(enemyHealthBar);
-        yield return null;
-        StartCoroutine(Death());
-    }
-    IEnumerator Death()
-    {
+        animator.SetTrigger("Death");
         yield return new WaitForSeconds(10f);
         Destroy(enemy);
     }
+
 }

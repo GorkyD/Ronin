@@ -25,6 +25,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyCombatSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/HotZoneCheck.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/TriggerAreaCheck.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rewind/ReTime.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1zVJgt3GyzvfDMCq0uJETfqHJx2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -44,7 +45,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+  <component name="RunManager">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../UnityGames/Bandit\Bandit.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -82,7 +83,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1634227466435</updated>
-      <workItem from="1634227671029" duration="51935000" />
+      <workItem from="1634227671029" duration="52392000" />
+      <workItem from="1634915849228" duration="3000" />
+      <workItem from="1635242681988" duration="5769000" />
     </task>
     <servers />
   </component>

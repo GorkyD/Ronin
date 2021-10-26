@@ -22,6 +22,7 @@ public class PlayerCombatSystem : MonoBehaviour
     private float nextAttackTime;
     private Animator animator;
     #endregion
+    
     private void Start()
     {
         animator = GetComponent<Animator>();

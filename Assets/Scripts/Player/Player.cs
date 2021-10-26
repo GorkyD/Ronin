@@ -6,25 +6,19 @@ public class Player : MonoBehaviour
     
     private int currentHealth;
     private Animator animator;
-    
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
-    
-    private void Update()
-    {
-        
-    }
-    
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         animator.SetTrigger("Hurt");
         healthBar.SetHealth(currentHealth);
-        
+
         if (currentHealth <= 0)
         {
             animator.SetTrigger("Death");
